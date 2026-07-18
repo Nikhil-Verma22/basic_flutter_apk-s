@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUMINAL - Text Writer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary": "#00363a",
+                "on-primary-container": "#002022",
+                "tertiary-container": "#004e5d",
+                "surface-container-highest": "#333333",
+                "primary": "#00f2ff",
+                "on-error-container": "#ffdad6",
+                "secondary-fixed": "#97f0ff",
+                "secondary-fixed-dim": "#00f2ff",
+                "on-tertiary-container": "#bee9ff",
+                "surface": "#121212",
+                "on-tertiary-fixed": "#001f26",
+                "on-surface-variant": "#c2c7cf",
+                "on-tertiary-fixed-variant": "#004e5d",
+                "on-secondary-fixed": "#001f21",
+                "secondary": "#00f2ff",
+                "surface-variant": "#1e1e1e",
+                "on-secondary-container": "#00f2ff",
+                "surface-tint": "#00f2ff",
+                "on-secondary-fixed-variant": "#004f53",
+                "primary-fixed": "#00f2ff",
+                "on-tertiary": "#003640",
+                "on-primary-fixed": "#002022",
+                "surface-container-high": "#2a2a2a",
+                "error-container": "#93000a",
+                "surface-bright": "#3d3839",
+                "primary-fixed-dim": "#00f2ff",
+                "outline-variant": "#43474e",
+                "on-primary": "#00373a",
+                "background": "#121212",
+                "on-background": "#e2e2e2",
+                "on-surface": "#e2e2e2",
+                "on-error": "#690005",
+                "tertiary-fixed-dim": "#56d5fa",
+                "surface-container-lowest": "#0a0a0a",
+                "inverse-primary": "#00696d",
+                "outline": "#8d9199",
+                "tertiary": "#56d5fa",
+                "inverse-on-surface": "#121212",
+                "on-primary-fixed-variant": "#004f53",
+                "inverse-surface": "#e2e2e2",
+                "surface-container": "#1e1e1e",
+                "surface-dim": "#121212",
+                "primary-container": "#00f2ff",
+                "secondary-container": "#004f53",
+                "tertiary-fixed": "#bee9ff",
+                "error": "#ffb4ab",
+                "surface-container-low": "#1a1a1a"
+            },
+            "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Space Grotesk"],
+                "body": ["Manrope"],
+                "label": ["Manrope"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-black overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#121212]/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,242,255,0.05)] flex items-center justify-between px-6 py-4">
+<div class="flex items-center gap-4">
+<button class="text-primary active:scale-95 duration-300 hover:bg-primary/10 p-2 rounded-full">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex flex-col">
+<h1 class="text-xl font-headline font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] to-[#56d5fa] leading-none">LUMINAL</h1>
+<span class="text-[10px] font-label uppercase tracking-widest text-zinc-500 mt-1">Healthy eating tips</span>
+</div>
+</div>
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full border-2 border-primary/30 overflow-hidden">
+<img alt="AI Assistant Persona" class="w-full h-full object-cover" data-alt="abstract digital human profile with neon light accents and glowing facial features in high tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLPvL7E5nawV9LKoxhrc4TtGbjzC1jy4tgD4b_ddIddw1MIY_W_QoN05p96nDoPea2cdrkD2Z3n2eh5NIa8MZAC69kt-zWony46OkK-XzxE0PDFsqJ9mO8nbGu9Hs6DObj4JxdINMtmVO-1c_rngBZQZc-1oSfrqj4u6v1CRnIu-wu6G7b0zS7i_9dxfebBRTQcYoMylYG60xp1gtZUQG--2u3dRG9oCt9aPwWomMThq1Km_70KqqSTA1zv0Xpj7mdc6J9vkUd_f8Q"/>
+</div>
+</div>
+</header>
+<!-- Chat Canvas -->
+<main class="h-screen w-full pt-24 pb-32 overflow-y-auto scrollbar-hide flex flex-col px-6 space-y-8">
+<!-- AI Message Block -->
+<div class="flex flex-col space-y-2 max-w-[85%] self-start">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">neurology</span>
+</div>
+<span class="text-xs font-label text-zinc-500 tracking-wider">AI WRITER</span>
+</div>
+<div class="bg-surface-container text-on-surface p-6 rounded-t-lg rounded-br-lg shadow-sm border-l-2 border-primary/20">
+<p class="leading-relaxed text-sm">Hello! I'm your AI health consultant. Based on your profile, I've curated some essential tips for maintaining a balanced diet while staying productive. Would you like to start with breakfast options or general nutrition myths?</p>
+</div>
+</div>
+<!-- User Message Block -->
+<div class="flex flex-col space-y-2 max-w-[85%] self-end">
+<div class="flex items-center justify-end gap-3 mb-1">
+<span class="text-xs font-label text-zinc-500 tracking-wider">YOU</span>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/20 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="portrait of a young man with sharp features looking confident with dramatic cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7rDapaQ2mO8Zf4hoU7j5azZYeEz200aRXaudEIaRLxgGNCcFReFviSS4gpn_lf2FXYZl-mQSClINgWVil6xwP-KAE1YyDiqr9Vrjrov195Dr5Jg3NgCveGivIHKOY_uBpaXLL5E2AhMjxAQZVo3Z3g4lzgUbhtp5nDbw7hpetqfSCXsIOogLzRr-1j3W095lmBORcBqDLwnSdGvaQLF-6TVOW0NJhBqfAH8MY9ryKsu98Gv5wBLo5w6xbe6B6LLVQlrh7whRpFFW2"/>
+</div>
+</div>
+<div class="text-black p-6 rounded-t-lg rounded-bl-lg shadow-xl shadow-cyan-900/10" style="background: linear-gradient(135deg, #00f2ff 0%, #0088ff 100%);">
+<p class="leading-relaxed text-sm font-bold">Let's start with nutrition myths. I've heard a lot of conflicting information about late-night snacking.</p>
+</div>
+</div>
+<!-- AI Detailed Response (Bento-like cards) -->
+<div class="flex flex-col space-y-2 max-w-[90%] self-start pb-8">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">neurology</span>
+</div>
+<span class="text-xs font-label text-zinc-500 tracking-wider">AI WRITER</span>
+</div>
+<div class="bg-surface-container p-6 rounded-t-lg rounded-br-lg space-y-4">
+<p class="text-sm leading-relaxed">The myth that late-night snacking inherently causes weight gain is common. It's actually more about the *total calories* and *quality* of food consumed over 24 hours. However, here are some intelligent choices for late night:</p>
+<!-- Horizontal Cards Bleed -->
+<div class="flex gap-4 overflow-x-auto scrollbar-hide -mx-6 px-6 pb-2">
+<div class="min-w-[200px] bg-surface-container-high p-4 rounded-lg flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary">eco</span>
+<h4 class="font-headline font-bold text-sm">Greek Yogurt</h4>
+<p class="text-[11px] text-zinc-400">High protein content helps with muscle recovery during sleep.</p>
+</div>
+<div class="min-w-[200px] bg-surface-container-high p-4 rounded-lg flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary">egg</span>
+<h4 class="font-headline font-bold text-sm">Hard-boiled Eggs</h4>
+<p class="text-[11px] text-zinc-400">Low-calorie, nutrient-dense snack to curb hunger effectively.</p>
+</div>
+<div class="min-w-[200px] bg-surface-container-high p-4 rounded-lg flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary">psychiatry</span>
+<h4 class="font-headline font-bold text-sm">Herbal Tea</h4>
+<p class="text-[11px] text-zinc-400">Chamomile can help regulate blood sugar levels at night.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Input Area -->
+<div class="fixed bottom-0 left-0 w-full bg-[#121212]/60 backdrop-blur-2xl rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,242,255,0.1)] z-50">
+<div class="max-w-4xl mx-auto px-6 py-6 flex items-center gap-4">
+<button class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="flex-1 relative">
+<input class="w-full bg-surface-container border-none rounded-full px-6 py-4 text-on-surface placeholder:text-zinc-600 focus:ring-1 focus:ring-primary outline-none font-body text-sm" placeholder="Type a message..." type="text"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+<button class="w-12 h-12 rounded-full bg-primary text-black flex items-center justify-center shadow-[0_0_20px_rgba(0,242,255,0.4)] active:scale-95 transition-transform">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<!-- Safe Area Spacer -->
+<div class="h-6 w-full"></div>
+</div>
+<!-- Navigation Drawer (Hidden by default, used for structural reference) -->
+<aside class="hidden fixed inset-y-0 left-0 w-80 z-[60] flex-col p-6 bg-[#1a1a1a] rounded-r-[2rem] border-r border-primary/10 shadow-2xl shadow-cyan-900/20">
+<div class="flex items-center gap-4 mb-12">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest"></div>
+<div>
+<h3 class="font-headline font-black text-primary">Synthesist 01</h3>
+<p class="text-xs text-zinc-400">Pro Tier Active</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<div class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary font-bold border-l-4 border-primary font-headline">
+<span class="material-symbols-outlined">add</span>
+<span>New Chat</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:text-zinc-100 hover:bg-[#333333] transition-all duration-200 font-headline">
+<span class="material-symbols-outlined">database</span>
+<span>Recent Memory</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:text-zinc-100 hover:bg-[#333333] transition-all duration-200 font-headline">
+<span class="material-symbols-outlined">neurology</span>
+<span>Voice Core</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:text-zinc-100 hover:bg-[#333333] transition-all duration-200 font-headline">
+<span class="material-symbols-outlined">settings</span>
+<span>Neural Settings</span>
+</div>
+</nav>
+</aside>
+</body></html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Recent Expenses</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#510017",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#ff8bc0",
+                    "secondary-fixed": "#dcc9ff",
+                    "secondary": "#6a46ae",
+                    "tertiary": "#9a3669",
+                    "on-secondary-container": "#553099",
+                    "surface-container-highest": "#dbdde2",
+                    "surface-bright": "#f6f6fa",
+                    "on-tertiary-container": "#62033c",
+                    "secondary-fixed-dim": "#d0b8ff",
+                    "inverse-on-surface": "#9c9da0",
+                    "surface-variant": "#dbdde2",
+                    "on-tertiary": "#ffeff3",
+                    "outline-variant": "#acadb1",
+                    "surface-dim": "#d2d4da",
+                    "on-secondary-fixed": "#411884",
+                    "inverse-surface": "#0c0e11",
+                    "outline": "#75777a",
+                    "surface": "#f6f6fa",
+                    "error-dim": "#a70138",
+                    "on-primary-fixed": "#000000",
+                    "on-secondary-fixed-variant": "#5f3ba3",
+                    "surface-container": "#e7e8ed",
+                    "on-background": "#2d2f32",
+                    "on-tertiary-fixed": "#37001f",
+                    "on-surface-variant": "#5a5b5f",
+                    "tertiary-fixed-dim": "#f17db3",
+                    "on-tertiary-fixed-variant": "#6e1046",
+                    "tertiary-dim": "#8b2a5d",
+                    "surface-tint": "#5944ca",
+                    "secondary-dim": "#5e39a1",
+                    "primary-fixed": "#a092ff",
+                    "secondary-container": "#dcc9ff",
+                    "on-error": "#ffefef",
+                    "primary-fixed-dim": "#9282ff",
+                    "on-primary": "#f6f0ff",
+                    "on-surface": "#2d2f32",
+                    "primary-container": "#a092ff",
+                    "tertiary-container": "#ff8bc0",
+                    "on-secondary": "#f8efff",
+                    "error-container": "#f74b6d",
+                    "primary": "#5944ca",
+                    "surface-container-low": "#f0f0f5",
+                    "primary-dim": "#4d36be",
+                    "surface-container-high": "#e1e2e7",
+                    "inverse-primary": "#907eff",
+                    "on-primary-fixed-variant": "#290091",
+                    "background": "#f6f6fa",
+                    "on-primary-container": "#200078",
+                    "error": "#b41340"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#f6f6fa]/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#7C69EF]" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="text-xl font-extrabold text-[#7C69EF] font-['Plus_Jakarta_Sans'] tracking-tight">Journal</span>
+</div>
+</nav>
+<main class="mt-20 px-6">
+<!-- Header & Editorial Display -->
+<header class="mb-8">
+<p class="text-slate-500 font-label font-semibold text-[11px] tracking-[0.1em] uppercase mb-1">Overview</p>
+<h1 class="headline text-4xl font-extrabold tracking-tight text-on-surface">Expenses</h1>
+</header><!-- Horizontal Timeframe Segmented Control -->
+<div class="relative -mx-6 mb-8 mt-2">
+<div class="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-surface to-transparent z-10 pointer-events-none"></div>
+<div class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-surface to-transparent z-10 pointer-events-none"></div>
+<div class="flex overflow-x-auto no-scrollbar gap-4 px-8 py-2">
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-primary text-white font-label text-[13px] font-bold tracking-wide active:scale-95 transition-all shadow-lg shadow-primary/20">Today</button>
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant font-label text-[13px] font-semibold tracking-wide hover:bg-surface-container-high active:scale-95 transition-all">Weekly</button>
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant font-label text-[13px] font-semibold tracking-wide hover:bg-surface-container-high active:scale-95 transition-all">Monthly</button>
+</div>
+</div>
+<!-- Horizontal Category List -->
+<section class="mb-10">
+<div class="flex items-center gap-3 overflow-x-auto no-scrollbar pb-2">
+<!-- New Category Button -->
+<button class="flex-shrink-0 w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">add</span>
+</button>
+<!-- Category Chips -->
+<div class="flex items-center gap-3">
+<div class="flex-shrink-0 px-6 h-14 rounded-xl bg-primary flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-headline font-bold text-white">All</span>
+</div>
+<div class="flex-shrink-0 px-6 h-14 rounded-xl bg-surface-container-lowest flex items-center justify-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-tertiary">restaurant</span>
+<span class="font-headline font-bold text-on-surface">Food</span>
+</div>
+<div class="flex-shrink-0 px-6 h-14 rounded-xl bg-surface-container-lowest flex items-center justify-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-secondary">shopping_bag</span>
+<span class="font-headline font-bold text-on-surface">Shopping</span>
+</div>
+<div class="flex-shrink-0 px-6 h-14 rounded-xl bg-surface-container-lowest flex items-center justify-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-primary-fixed-dim">commute</span>
+<span class="font-headline font-bold text-on-surface">Travel</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Transactions Editorial List -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline text-lg font-bold tracking-tight">Recent Activity</h2>
+<button class="text-primary font-label text-sm font-bold">View History</button>
+</div>
+<div class="space-y-3">
+<!-- Transaction Item: Burger -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center justify-between group transition-all hover:translate-x-1">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lunch_dining</span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface leading-tight">Burger</p>
+<p class="font-label text-xs font-medium text-slate-400">Dec 24, 2:30 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-bold text-error leading-tight">- 100rs</p>
+<p class="font-label text-[10px] uppercase tracking-wider text-slate-400 font-bold">Food</p>
+</div>
+</div>
+<!-- Transaction Item: Shoes -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center justify-between group transition-all hover:translate-x-1">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface leading-tight">Shoes</p>
+<p class="font-label text-xs font-medium text-slate-400">Dec 23, 11:15 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-bold text-error leading-tight">- 2000rs</p>
+<p class="font-label text-[10px] uppercase tracking-wider text-slate-400 font-bold">Shopping</p>
+</div>
+</div>
+<!-- Transaction Item: Netflix -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center justify-between group transition-all hover:translate-x-1">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_display</span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface leading-tight">Subscription</p>
+<p class="font-label text-xs font-medium text-slate-400">Dec 22, 9:00 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-bold text-error leading-tight">- 499rs</p>
+<p class="font-label text-[10px] uppercase tracking-wider text-slate-400 font-bold">Entertainment</p>
+</div>
+</div>
+<!-- Transaction Item: Salary (Income Example) -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl flex items-center justify-between group transition-all hover:translate-x-1">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface leading-tight">Salary Credit</p>
+<p class="font-label text-xs font-medium text-slate-400">Dec 20, 10:00 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-bold text-primary leading-tight">+ 45000rs</p>
+<p class="font-label text-[10px] uppercase tracking-wider text-slate-400 font-bold">Income</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Chart Component (Spend Analysis) -->
+<section class="mt-10">
+<div class="bg-gradient-to-br from-primary to-primary-container p-8 rounded-[2rem] text-white overflow-hidden relative min-h-[180px]">
+<div class="relative z-10">
+<p class="font-label text-[11px] uppercase tracking-[0.2em] opacity-80 mb-1">Monthly Spending</p>
+<div class="flex items-baseline gap-2">
+<h3 class="font-headline text-4xl font-extrabold tracking-tighter">12,450</h3>
+<span class="font-headline text-lg font-bold opacity-70">rs</span>
+</div>
+<div class="mt-6 flex items-center gap-4">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase font-bold tracking-widest opacity-60">Status</span>
+<span class="text-sm font-bold">12% Under Budget</span>
+</div>
+</div>
+</div>
+<!-- Abstract visual element -->
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute right-6 top-8">
+<span class="material-symbols-outlined text-6xl opacity-20" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-28 right-6 w-16 h-16 rounded-full bg-primary shadow-[0_12px_32px_-4px_rgba(89,68,202,0.4)] flex items-center justify-center text-white active:scale-90 transition-transform duration-200 z-50">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'wght' 600;">add</span>
+</button>
+<!-- Bottom Navigation Shell -->
+<footer class="fixed bottom-0 w-full rounded-t-[1.5rem] z-50 bg-[#f6f6fa] dark:bg-slate-900 shadow-[0_-4px_24px_-4px_rgba(89,68,202,0.06)] flex justify-around items-center h-20 px-4 pb-safe">
+<div class="flex flex-col items-center justify-center text-[#7C69EF] dark:text-[#a092ff] font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-['Manrope'] text-[11px] font-semibold tracking-wide uppercase mt-1">Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#7C69EF] transition-all">
+<span class="material-symbols-outlined">insert_chart</span>
+<span class="font-['Manrope'] text-[11px] font-semibold tracking-wide uppercase mt-1">Insights</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#7C69EF] transition-all">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-['Manrope'] text-[11px] font-semibold tracking-wide uppercase mt-1">Wallets</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#7C69EF] transition-all">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Manrope'] text-[11px] font-semibold tracking-wide uppercase mt-1">Profile</span>
+</div>
+</footer>
+</body></html>
