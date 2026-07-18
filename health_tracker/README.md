@@ -1,12 +1,12 @@
-# 🏃 Pulse Tracker — Step Count & Health Monitor
+# 🏃 Health Tracker — Step Count & Health Monitor
 
-A lightweight, step-counting health app built with Flutter. Pulse Tracker uses the device's hardware **pedometer sensor** to count your steps in real time, calculates calories burned and active minutes, tracks hydration, and visualizes weekly progress — all wrapped in a stunning glassmorphism dark UI.
+A lightweight, step-counting health app built with Flutter. Health Tracker uses the device's hardware **pedometer sensor** to count your steps in real time, calculates calories burned and active minutes, tracks hydration, and visualizes weekly progress — all wrapped in a stunning glassmorphism dark UI.
 
 ---
 
 ## Overview
 
-Pulse Tracker is a simple but complete health monitoring app driven entirely by step data. It avoids complex biometric sensors and instead derives calories burned, active minutes, and progress towards goals directly from the step count, making it accessible on any Android device. Data is stored locally in SQLite and persists across sessions.
+Health Tracker is a simple but complete health monitoring app driven entirely by step data. It avoids complex biometric sensors and instead derives calories burned, active minutes, and progress towards goals directly from the step count, making it accessible on any Android device. Data is stored locally in SQLite and persists across sessions.
 
 ---
 

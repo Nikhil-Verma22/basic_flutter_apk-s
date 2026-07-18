@@ -12,7 +12,7 @@ A collection of five fully-featured Flutter applications, each built as a standa
 | 2 | [🤖 DeepSite](#-deepsite--ai-chatbot) | Real-time AI chatbot powered by Gemini | `google_generative_ai`, Provider |
 | 3 | [🛍️ Apni Dukan](#️-apni-dukan--e-commerce-app) | Artisan-themed e-commerce marketplace | Supabase, Provider |
 | 4 | [💸 Expense Tracker](#-expense-tracker) | Personal finance journal with analytics | Floor ORM, SQLite, `fl_chart` |
-| 5 | [🏃 Pulse Tracker](#-pulse-tracker--health-monitor) | Step counter & health tracker | Pedometer, Riverpod, SQLite |
+| 5 | [🏃 Health Tracker](#-health-tracker--health-monitor) | Step counter & health tracker | Pedometer, Riverpod, SQLite |
 
 ---
 
@@ -96,7 +96,7 @@ A comprehensive personal finance journal that lets you log expenses, organize th
 
 ---
 
-## 🏃 Pulse Tracker — Health Monitor
+## 🏃 Health Tracker — Health Monitor
 
 > **Location:** `health_tracker/`
 
@@ -114,7 +114,7 @@ A step-counting health app that uses the device's hardware **pedometer sensor** 
 
 **Tech:** Flutter · Riverpod · `pedometer` · SQLite · `flutter_local_notifications` · `fl_chart` · Google Fonts
 
-📄 [Read the Pulse Tracker README](health_tracker/README.md)
+📄 [Read the Health Tracker README](health_tracker/README.md)
 
 ---
 
@@ -142,18 +142,18 @@ flutter run
 | Technology | Used In |
 |---|---|
 | Flutter + Dart | All projects |
-| Riverpod | Beats, Pulse Tracker |
+| Riverpod | Beats, Health Tracker |
 | Provider | DeepSite, Apni Dukan, Expense Tracker |
 | SQLite (Floor ORM) | Expense Tracker |
-| SQLite (raw helper) | Pulse Tracker |
+| SQLite (raw helper) | Health Tracker |
 | Supabase | Apni Dukan |
 | Google Gemini API | DeepSite |
-| Pedometer Sensor | Pulse Tracker |
-| `fl_chart` | Expense Tracker, Pulse Tracker |
+| Pedometer Sensor | Health Tracker |
+| `fl_chart` | Expense Tracker, Health Tracker |
 | `just_audio` | Beats |
 | `flutter_markdown` | DeepSite |
 | `cached_network_image` | Apni Dukan |
-| `shared_preferences` | Beats, Pulse Tracker, Expense Tracker |
+| `shared_preferences` | Beats, Health Tracker, Expense Tracker |
 
 ---
 
